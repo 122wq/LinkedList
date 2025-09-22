@@ -18,34 +18,47 @@ public class LinkedList{
 
   //instance varialbes go here (think about what you need to keep track of!)
   
-  ListNode start;
-  LinkedList list;
+  private ListNode start;
+  private LinkedList list;
   //constructors go here
   public LinkedList()
   {
-    list = null;
+    
   }
+
+
 
   //precondition: the list has been initialized
   //postcondition: the ListNode containing the appropriate value has been added and returned
   public ListNode addAValue(String line)
   {
+    ListNode temp = start;
     if (list == null)
     {
+
       start = new ListNode(line, null);
     }
     else
     {
       char firstLetter = line.charAt(0);
-      ListNode temp = start;
-      while(temp.getValue().charAt(0) < firstLetter && temp.getNext() != null)
+      while((temp.getValue().charAt(0) < firstLetter) && temp.getNext() != null)
       {
-        temp.setNext(temp.getNext());
-        temp.setValue(temp.getValue());
+        temp = temp.getNext();
       }
+
+      if (temp.getNext() == null)
+      {
+        temp.setNext(new ListNode(line, null));
+      }
+      else
+      {
+        ListNode nNode = new ListNode(line, temp.getNext().getNext());
+        temp.setNext(nNode);
+      }
+
     }
     
-    return null;
+    return temp;
   }
 
   //precondition: the list has been initialized
@@ -53,20 +66,44 @@ public class LinkedList{
   //if the value is not in the list returns null
   public ListNode deleteAValue(String line)
   {
-    return null;
+    ListNode temp = start;
+    ListNode del;
+    while(!(temp.getValue().equals(line)) && temp.getNext() != null)
+    {
+      temp = temp.getNext();
+    }
+
+    if (temp.getNext() == null && !(temp.getValue().equals(line)))
+    {
+      return null;
+    }
+    else
+    {
+      del = temp.getNext();
+      temp.setNext(temp.getNext().getNext());
+    }
+    return del;
   }
+
 
   //precondition: the list has been initialized
   //postconditions: returns a string containing all values appended together with spaces between.
   public String showValues()
   {
-    return null;
+    String stuff = "";
+    ListNode temp = start;
+    while(temp.getNext() != null)
+    {
+      stuff += " " + temp.getValue();
+      temp = temp.getNext();
+    }
+    return stuff;
   }
 
   //precondition: the list has been initialized
   //postconditions: clears the list.
   public void clear()
   {
-  
+    list = null;
   }
 }
