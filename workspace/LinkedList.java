@@ -17,14 +17,34 @@ Problem:  Write a program that keeps and manipulates a linked list of
 public class LinkedList{
 
   //instance varialbes go here (think about what you need to keep track of!)
-
+  
+  ListNode start;
+  LinkedList list;
   //constructors go here
-
+  public LinkedList()
+  {
+    list = null;
+  }
 
   //precondition: the list has been initialized
   //postcondition: the ListNode containing the appropriate value has been added and returned
   public ListNode addAValue(String line)
   {
+    if (list == null)
+    {
+      start = new ListNode(line, null);
+    }
+    else
+    {
+      char firstLetter = line.charAt(0);
+      ListNode temp = start;
+      while(temp.getValue().charAt(0) < firstLetter && temp.getNext() != null)
+      {
+        temp.setNext(temp.getNext());
+        temp.setValue(temp.getValue());
+      }
+    }
+    
     return null;
   }
 
