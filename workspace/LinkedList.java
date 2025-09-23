@@ -115,4 +115,28 @@ public class LinkedList{
   {
     start = null;
   }
+
+  public void reverse()
+  {
+    ListNode curr = start;
+    ListNode previous = null;
+    ListNode temp = null;
+
+    while (curr != null)
+    {
+      temp = curr.getNext();
+     
+      curr.setNext(previous);
+      
+      previous = curr;
+      System.out.println(previous.getValue());
+      curr = temp;
+    }
+    start = previous;
+  }
+
+  public void nReverse(int n)
+  {
+    
+  }
 }

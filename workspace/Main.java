@@ -6,7 +6,7 @@ public class Main{
     public static void main(String[] args)
         throws IOException
     {
-        //aaEnter data using BufferReader
+        /*Enter data using BufferReader
         BufferedReader reader = new BufferedReader(
             new InputStreamReader(System.in));
 
@@ -39,7 +39,19 @@ public class Main{
  
         // Printing the read line
         System.out.println("thanks for playing!");
-        
+        */
+        LinkedList list = new LinkedList();
+        list.addAValue("apple");
+        list.addAValue("banana");
+        list.addAValue("cherry");
+        list.addAValue("date");
+        list.addAValue("fig");
+        list.addAValue("grape");
+        System.out.println("Original list: " + list.showValues());
+        list.deleteAValue("cherry");
+        System.out.println("After deleting 'cherry': " + list.showValues());
+        list.reverse();
+        System.out.println("reverse: " + list.showValues());
     }
     
   }
