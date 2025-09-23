@@ -34,7 +34,7 @@ public class LinkedList{
     {
 
       start = new ListNode(line, null);
-      System.out.println(start.getValue() + "start");
+      temp = start;
     }
     
     else
