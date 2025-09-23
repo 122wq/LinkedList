@@ -125,11 +125,8 @@ public class LinkedList{
     while (curr != null)
     {
       temp = curr.getNext();
-     
       curr.setNext(previous);
-      
       previous = curr;
-      System.out.println(previous.getValue());
       curr = temp;
     }
     start = previous;

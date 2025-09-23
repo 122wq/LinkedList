@@ -42,11 +42,12 @@ public class Main{
         */
         LinkedList list = new LinkedList();
         list.addAValue("apple");
-        list.addAValue("banana");
         list.addAValue("cherry");
+        list.addAValue("grape");
+        list.addAValue("banana");
         list.addAValue("date");
         list.addAValue("fig");
-        list.addAValue("grape");
+       
         System.out.println("Original list: " + list.showValues());
         list.deleteAValue("cherry");
         System.out.println("After deleting 'cherry': " + list.showValues());
