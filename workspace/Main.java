@@ -6,7 +6,7 @@ public class Main{
     public static void main(String[] args)
         throws IOException
     {
-        // Enter data using BufferReader
+        /*  Enter data using BufferReader
         BufferedReader reader = new BufferedReader(
             new InputStreamReader(System.in));
 
@@ -39,5 +39,16 @@ public class Main{
  
         // Printing the read line
         System.out.println("thanks for playing!");
+        */
+        LinkedList list = new LinkedList();
+        list.addAValue("aaa");
+        list.addAValue("cccccc");
+        list.addAValue("bbbbbb");
+        list.addAValue("rbb");
+        list.addAValue("bb");
+        list.addAValue("qwwwwwwwwwww");
+        list.deleteAValue("rbb");
+        System.out.println(list.showValues());
     }
-}
+    
+  }

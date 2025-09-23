@@ -19,41 +19,44 @@ public class LinkedList{
   //instance varialbes go here (think about what you need to keep track of!)
   
   private ListNode start;
-  private LinkedList list;
   //constructors go here
   public LinkedList()
   {
     
   }
 
-
-
   //precondition: the list has been initialized
   //postcondition: the ListNode containing the appropriate value has been added and returned
   public ListNode addAValue(String line)
   {
     ListNode temp = start;
-    if (list == null)
+    if (start == null)
     {
 
       start = new ListNode(line, null);
+      System.out.println(start.getValue() + "start");
     }
+    
     else
     {
       char firstLetter = line.charAt(0);
-      while((temp.getValue().charAt(0) < firstLetter) && temp.getNext() != null)
+      
+      while(temp.getNext() != null && (temp.getNext().getValue().charAt(0) < firstLetter))
       {
+       
         temp = temp.getNext();
+      
       }
-
+    
       if (temp.getNext() == null)
       {
+        System.out.println(temp.getValue() + "11");
         temp.setNext(new ListNode(line, null));
       }
       else
       {
-        ListNode nNode = new ListNode(line, temp.getNext().getNext());
-        temp.setNext(nNode);
+        System.out.println(temp.getNext().getValue() + "12");
+        temp.setNext(new ListNode(line, temp.getNext()));
       }
 
     }
@@ -68,7 +71,15 @@ public class LinkedList{
   {
     ListNode temp = start;
     ListNode del;
-    while(!(temp.getValue().equals(line)) && temp.getNext() != null)
+    //if start contains value that should be deleted
+    if (start.getValue().equals(line))
+    {
+      System.out.println(start.getValue());
+      
+      start = temp.getNext();
+      return temp;
+    }
+    while(temp.getNext() != null && !(temp.getNext().getValue().equals(line)))
     {
       temp = temp.getNext();
     }
@@ -79,8 +90,10 @@ public class LinkedList{
     }
     else
     {
+      System.out.println(start.getValue());
       del = temp.getNext();
-      temp.setNext(temp.getNext().getNext());
+      System.out.println(temp.getNext().getValue());
+      temp.setNext(del.getNext());
     }
     return del;
   }
@@ -92,7 +105,8 @@ public class LinkedList{
   {
     String stuff = "";
     ListNode temp = start;
-    while(temp.getNext() != null)
+  
+    while(temp != null)
     {
       stuff += " " + temp.getValue();
       temp = temp.getNext();
@@ -104,6 +118,6 @@ public class LinkedList{
   //postconditions: clears the list.
   public void clear()
   {
-    list = null;
+    start = null;
   }
 }
