@@ -50,12 +50,10 @@ public class LinkedList{
     
       if (temp.getNext() == null)
       {
-        System.out.println(temp.getValue() + "11");
         temp.setNext(new ListNode(line, null));
       }
       else
       {
-        System.out.println(temp.getNext().getValue() + "12");
         temp.setNext(new ListNode(line, temp.getNext()));
       }
 
@@ -74,8 +72,7 @@ public class LinkedList{
     //if start contains value that should be deleted
     if (start.getValue().equals(line))
     {
-      System.out.println(start.getValue());
-      
+
       start = temp.getNext();
       return temp;
     }
@@ -90,9 +87,7 @@ public class LinkedList{
     }
     else
     {
-      System.out.println(start.getValue());
       del = temp.getNext();
-      System.out.println(temp.getNext().getValue());
       temp.setNext(del.getNext());
     }
     return del;

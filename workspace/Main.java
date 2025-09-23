@@ -6,7 +6,7 @@ public class Main{
     public static void main(String[] args)
         throws IOException
     {
-        //aEnter data using BufferReader
+        //aaEnter data using BufferReader
         BufferedReader reader = new BufferedReader(
             new InputStreamReader(System.in));
 
