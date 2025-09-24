@@ -68,7 +68,7 @@ public class LinkedList{
     {
 
       start = temp.getNext();
-      return temp;
+      return start;
     }
     while(temp.getNext() != null && !(temp.getNext().getValue().equals(line)))
     {
