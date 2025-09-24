@@ -35,25 +35,22 @@ public class LinkedList{
     {
 
       start = new ListNode(line, null);
-      temp = start;
+      return start;
     }
     
     else
     {
+      if (start.getValue().compareTo(line) > 0)
+      {
+        ListNode newStart = new ListNode(line, start);
+        start = newStart;
+        return start;
+      }
       while(temp.getNext() != null && (temp.getNext().getValue().compareTo(line) < 0))
       {
         temp = temp.getNext();
       }
-    
-      if (temp.getNext() == null)
-      {
-        temp.setNext(new ListNode(line, null));
-      }
-      else
-      {
-        temp.setNext(new ListNode(line, temp.getNext()));
-      }
-
+      temp.setNext(new ListNode(line, temp.getNext()));
     }
     
     return temp;

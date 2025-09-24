@@ -47,12 +47,13 @@ public class Main{
         list.addAValue("banana");
         list.addAValue("date");
         list.addAValue("fig");
-        list.addAValue("ct");
+        list.addAValue("aa");
        
         System.out.println("Original list: " + list.showValues());
         list.deleteAValue("cherry");
-        list.deleteAValue("apple");
-        System.out.println("After deleting 'cherry' and 'apple': " + list.showValues());
+        list.deleteAValue("aa");
+        list.deleteAValue("grape");
+        System.out.println("After deleting 'cherry' and 'aa' and 'grape': " + list.showValues());
         list.reverse();
         System.out.println("reverse: " + list.showValues());
     }
