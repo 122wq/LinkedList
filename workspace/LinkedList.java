@@ -1,3 +1,4 @@
+//Fnished by Jack Wang on 9/24/2025 
 /*
 Problem:  Write a program that keeps and manipulates a linked list of
 	    String data. The data will be provided by the user one item at a time.
@@ -39,13 +40,9 @@ public class LinkedList{
     
     else
     {
-      char firstLetter = line.charAt(0);
-      
-      while(temp.getNext() != null && (temp.getNext().getValue().charAt(0) < firstLetter))
+      while(temp.getNext() != null && (temp.getNext().getValue().compareTo(line) < 0))
       {
-       
         temp = temp.getNext();
-      
       }
     
       if (temp.getNext() == null)
