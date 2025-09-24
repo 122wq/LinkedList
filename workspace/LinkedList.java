@@ -31,6 +31,7 @@ public class LinkedList{
   public ListNode addAValue(String line)
   {
     ListNode temp = start;
+    //add at start
     if (start == null)
     {
 
@@ -40,12 +41,14 @@ public class LinkedList{
     
     else
     {
+      //adding a new value it is empty
       if (start.getValue().compareTo(line) > 0)
       {
         ListNode newStart = new ListNode(line, start);
         start = newStart;
         return start;
       }
+      //adding to middle or end
       while(temp.getNext() != null && (temp.getNext().getValue().compareTo(line) < 0))
       {
         temp = temp.getNext();
@@ -70,11 +73,12 @@ public class LinkedList{
       start = temp.getNext();
       return start;
     }
+
     while(temp.getNext() != null && !(temp.getNext().getValue().equals(line)))
     {
       temp = temp.getNext();
     }
-
+    //if the list does not contain the value seeked
     if (temp.getNext() == null && !(temp.getValue().equals(line)))
     {
       return null;
