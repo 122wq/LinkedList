@@ -118,20 +118,46 @@ public class LinkedList{
   {
     ListNode curr = start;
     ListNode previous = null;
-    ListNode temp = null;
+    ListNode next = null;
 
     while (curr != null)
     {
-      temp = curr.getNext();
+      next = curr.getNext();
       curr.setNext(previous);
       previous = curr;
-      curr = temp;
+      curr = next;
     }
     start = previous;
   }
 
   public void nReverse(int n)
   {
-    
+    ListNode curr = start;
+    ListNode previous = null;
+    ListNode next = null;
+    ListNode tempEnd = start;
+    ListNode tempStart = new ListNode(null, start);
+
+    while (curr != null)
+    {
+      for (int i = 0; i < n; i++)
+      {
+        tempEnd = tempEnd.getNext();
+      }
+      previous = tempEnd;
+      curr = tempStart.getNext();
+
+      for (int i = 0; i < n; i++)
+      {
+        next = curr.getNext();
+        curr.setNext(previous);
+        previous = curr;
+        curr = next;
+      }
+    }
+    start = previous;
   }
+  }
+
+    
 }

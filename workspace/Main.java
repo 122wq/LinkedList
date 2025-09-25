@@ -56,6 +56,8 @@ public class Main{
         System.out.println("After deleting 'cherry' and 'aa' and 'grape': " + list.showValues());
         list.reverse();
         System.out.println("reverse: " + list.showValues());
+        //list.nReverse(2);
+        //System.out.println("reverse: " + list.showValues());
     }
     
   }
