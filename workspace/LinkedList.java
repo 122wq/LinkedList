@@ -135,29 +135,63 @@ public class LinkedList{
     ListNode curr = start;
     ListNode previous = null;
     ListNode next = null;
-    ListNode tempEnd = start;
-    ListNode tempStart = new ListNode(null, start);
+    ListNode newStart = null;
+    ListNode tempEnd = null;
+    ListNode tempStart = null;
+    boolean firstPass = true;
 
     while (curr != null)
     {
-      for (int i = 0; i < n; i++)
-      {
-        tempEnd = tempEnd.getNext();
-      }
-      previous = tempEnd;
-      curr = tempStart.getNext();
-
-      for (int i = 0; i < n; i++)
+      tempStart = curr;
+      for (int i = 0; i < n && curr != null; i++)
       {
         next = curr.getNext();
         curr.setNext(previous);
         previous = curr;
         curr = next;
       }
+      if (firstPass)
+      {
+        newStart = previous;
+        firstPass = false;
+      }
+      if (tempEnd != null)
+      {      
+        tempEnd.setNext(previous);
+      }
+      tempEnd = tempStart;
+      previous = null; 
     }
-    start = previous;
-  }
-  }
-
     
+    start = newStart; 
+  }
+  public static void linkTest()
+  {
+    LinkedList list = new LinkedList();
+        list.addAValue("apple");
+        list.addAValue("cherry");
+        list.addAValue("grape");
+        list.addAValue("banana");
+        list.addAValue("date");
+        list.addAValue("fig");
+        list.addAValue("aa");
+        list.addAValue("salmon");
+        list.addAValue("kiwi");
+        list.addAValue("orange");
+        list.addAValue("pear");
+        list.addAValue("watermelon");
+        list.addAValue("mango");
+        list.addAValue("blueberry");
+        list.addAValue("raspberry");
+       
+        System.out.println("Original list: " + list.showValues());
+        list.deleteAValue("cherry");
+        list.deleteAValue("aa");
+        list.deleteAValue("grape");
+        System.out.println("After deleting 'cherry' and 'aa' and 'grape': " + list.showValues());
+        list.nReverse(5);
+        System.out.println("reverse: " + list.showValues());
+  }
 }
+
+

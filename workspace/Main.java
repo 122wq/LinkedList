@@ -40,24 +40,7 @@ public class Main{
         // Printing the read line
         System.out.println("thanks for playing!");
         */
-        LinkedList list = new LinkedList();
-        list.addAValue("apple");
-        list.addAValue("cherry");
-        list.addAValue("grape");
-        list.addAValue("banana");
-        list.addAValue("date");
-        list.addAValue("fig");
-        list.addAValue("aa");
-       
-        System.out.println("Original list: " + list.showValues());
-        list.deleteAValue("cherry");
-        list.deleteAValue("aa");
-        list.deleteAValue("grape");
-        System.out.println("After deleting 'cherry' and 'aa' and 'grape': " + list.showValues());
-        list.reverse();
-        System.out.println("reverse: " + list.showValues());
-        //list.nReverse(2);
-        //System.out.println("reverse: " + list.showValues());
+        LinkedList.linkTest();
     }
     
   }
