@@ -142,7 +142,9 @@ public class LinkedList{
 
     while (curr != null)
     {
+      //start of the current n-group
       tempStart = curr;
+      //reversing n nodes
       for (int i = 0; i < n && curr != null; i++)
       {
         next = curr.getNext();
@@ -150,16 +152,20 @@ public class LinkedList{
         previous = curr;
         curr = next;
       }
+      //if it is the first pass make the start the lst value reversed in the first group
       if (firstPass)
       {
         newStart = previous;
         firstPass = false;
       }
+      //connect the end of next group to start of the next group (previous)
       if (tempEnd != null)
       {      
         tempEnd.setNext(previous);
       }
+      //make the start of the next group the end of this group
       tempEnd = tempStart;
+      //reset the reversing nodes
       previous = null; 
     }
     
@@ -189,7 +195,7 @@ public class LinkedList{
         list.deleteAValue("aa");
         list.deleteAValue("grape");
         System.out.println("After deleting 'cherry' and 'aa' and 'grape': " + list.showValues());
-        list.nReverse(5);
+        list.nReverse(2);
         System.out.println("reverse: " + list.showValues());
   }
 }
