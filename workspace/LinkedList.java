@@ -195,7 +195,7 @@ public class LinkedList{
         list.deleteAValue("aa");
         list.deleteAValue("grape");
         System.out.println("After deleting 'cherry' and 'aa' and 'grape': " + list.showValues());
-        list.nReverse(2);
+        list.nReverse(3);
         System.out.println("reverse: " + list.showValues());
   }
 }
