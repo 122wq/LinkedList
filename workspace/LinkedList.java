@@ -135,7 +135,6 @@ public class LinkedList{
     ListNode curr = start;
     ListNode previous = null;
     ListNode next = null;
-    ListNode newStart = null;
     ListNode tempEnd = null;
     ListNode tempStart = null;
     boolean firstPass = true;
@@ -155,7 +154,7 @@ public class LinkedList{
       //if it is the first pass make the start the lst value reversed in the first group
       if (firstPass)
       {
-        newStart = previous;
+        start = previous;
         firstPass = false;
       }
       //connect the end of next group to start of the next group (previous)
@@ -163,13 +162,12 @@ public class LinkedList{
       {      
         tempEnd.setNext(previous);
       }
-      //make the start of the next group the end of this group
+      //make the original start of the reversed group the end of the group
       tempEnd = tempStart;
-      //reset the reversing nodes
+      //reset the reversing loop
       previous = null; 
     }
     
-    start = newStart; 
   }
   public static void linkTest()
   {
