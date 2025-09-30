@@ -114,6 +114,8 @@ public class LinkedList{
     start = null;
   }
 
+  //precondition: the list has been initialized
+  //postconditions: reverse the list
   public void reverse()
   {
     ListNode curr = start;
@@ -130,6 +132,8 @@ public class LinkedList{
     start = previous;
   }
 
+  //precondition: the list has been initialized
+  //postconditions: reverse the list in groups of n
   public void nReverse(int n)
   {
     ListNode curr = start;
